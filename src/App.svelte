@@ -1,6 +1,10 @@
 <script>
   let bill = 10.25;
   let tip = 15;
+
+  function changeTip(newTip) {
+    tip = newTip;
+  }
 </script>
 
 <style>
@@ -45,13 +49,28 @@
   </div>
   <div class="row">
     <div class="column">
-      <button class:button-outline={tip !== 15} class="button"> 15% </button>
+      <button
+        on:click={() => changeTip(15)}
+        class:button-outline={tip !== 15}
+        class="button">
+        15%
+      </button>
     </div>
     <div class="column">
-      <button class:button-outline={tip !== 25} class="button"> 25% </button>
+      <button
+        on:click={() => changeTip(25)}
+        class:button-outline={tip !== 25}
+        class="button">
+        25%
+      </button>
     </div>
     <div class="column">
-      <button class="button" class:button-outline={tip !== 30}> 30% </button>
+      <button
+        on:click={() => changeTip(30)}
+        class="button"
+        class:button-outline={tip !== 30}>
+        30%
+      </button>
     </div>
   </div>
   <div class="row">
