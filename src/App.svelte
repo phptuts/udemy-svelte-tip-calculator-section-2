@@ -2,9 +2,19 @@
   let bill = 10.25;
   let tip = 15;
 
+  function calculatedTip(bill, tip) {
+    const tipAmount = (tip / 100) * bill;
+    return tipAmount.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+  }
+
   function changeTip(newTip) {
     tip = newTip;
   }
+
+  $: tipDisplay = calculatedTip(bill, tip);
 </script>
 
 <style>
@@ -75,7 +85,7 @@
   </div>
   <div class="row">
     <div class="column">
-      <h2>Calculated Tip: $5.20</h2>
+      <h2>Calculated Tip: {tipDisplay}</h2>
     </div>
   </div>
 </div>
