@@ -1,3 +1,8 @@
+<script>
+  let bill = 10.25;
+  let tip = 15;
+</script>
+
 <style>
   h1,
   h2 {
@@ -23,22 +28,30 @@
   <div class="row">
     <div class="column">
       <label for="bill">Bill</label>
-      <input type="number" id="bill" min="0" />
+      <input bind:value={bill} type="number" id="bill" min="0" />
     </div>
   </div>
   <div class="row">
     <div class="column">
-      <label for="tip">Tip (15%)</label>
-      <input type="range" id="tip" step="1" min="0" max="100" />
+      <label for="tip">Tip ({tip}%)</label>
+      <input
+        bind:value={tip}
+        type="range"
+        id="tip"
+        step="1"
+        min="0"
+        max="100" />
     </div>
   </div>
   <div class="row">
-    <div class="column"><button class="button"> 15% </button></div>
     <div class="column">
-      <button class="button button-outline"> 25% </button>
+      <button class:button-outline={tip !== 15} class="button"> 15% </button>
     </div>
     <div class="column">
-      <button class="button button-outline"> 30% </button>
+      <button class:button-outline={tip !== 25} class="button"> 25% </button>
+    </div>
+    <div class="column">
+      <button class="button" class:button-outline={tip !== 30}> 30% </button>
     </div>
   </div>
   <div class="row">
